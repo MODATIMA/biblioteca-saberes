@@ -48,21 +48,17 @@ export default function Buscador({ destacado = false, valorInicial = '' }: Props
         type="search"
         value={consulta}
         onChange={(e) => setConsulta(e.target.value)}
-        placeholder={
-          destacado
-            ? 'Buscar argumentarios, campañas, cuencas, leyes…'
-            : 'Buscar en la biblioteca de saberes…'
-        }
+        placeholder={destacado ? 'Buscar recursos…' : 'Buscar…'}
         className={[
-          'flex-1 border-0 bg-transparent outline-none placeholder:text-tierra-400',
-          destacado ? 'text-lg py-2' : 'text-base py-1.5',
+          'min-w-0 flex-1 border-0 bg-transparent outline-none placeholder:text-tierra-400',
+          destacado ? 'text-base sm:text-lg py-2' : 'text-base py-1.5',
         ].join(' ')}
       />
       <button
         type="submit"
         className={[
-          'rounded-xl bg-rio-600 text-white font-semibold hover:bg-rio-700 transition',
-          destacado ? 'px-5 py-2 text-base' : 'px-4 py-1.5 text-sm',
+          'shrink-0 rounded-xl bg-rio-600 text-white font-semibold hover:bg-rio-700 transition',
+          destacado ? 'px-3 sm:px-5 py-2 text-sm sm:text-base' : 'px-3 sm:px-4 py-1.5 text-sm',
         ].join(' ')}
       >
         Buscar

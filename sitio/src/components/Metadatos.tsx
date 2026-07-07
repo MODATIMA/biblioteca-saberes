@@ -7,9 +7,9 @@ interface Props {
 
 function Fila({ etiqueta, children }: { etiqueta: string; children: React.ReactNode }) {
   return (
-    <div className="grid grid-cols-[max-content_1fr] gap-x-4 py-2 border-b border-tierra-100 last:border-none">
-      <dt className="text-xs uppercase tracking-wider text-tierra-500 pt-0.5">{etiqueta}</dt>
-      <dd className="text-sm text-tierra-800">{children}</dd>
+    <div className="flex flex-col gap-1 py-2 border-b border-tierra-100 last:border-none sm:grid sm:grid-cols-[max-content_1fr] sm:gap-x-4 sm:gap-y-0">
+      <dt className="text-xs uppercase tracking-wider text-tierra-500 sm:pt-0.5">{etiqueta}</dt>
+      <dd className="text-sm text-tierra-800 min-w-0 break-words">{children}</dd>
     </div>
   );
 }

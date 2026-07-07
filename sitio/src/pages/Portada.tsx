@@ -28,7 +28,7 @@ export default function Portada() {
   if (!indice) return <Cargando texto="Cargando la biblioteca de saberes…" />;
 
   return (
-    <div className="space-y-16">
+    <div className="space-y-10 sm:space-y-16">
       <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-rio-700 via-rio-600 to-alerce-600 text-white shadow-lg">
         <div className="absolute inset-0 opacity-20" aria-hidden>
           <svg viewBox="0 0 200 200" className="h-full w-full">
@@ -40,11 +40,11 @@ export default function Portada() {
             <rect width="200" height="200" fill="url(#lineas)" />
           </svg>
         </div>
-        <div className="relative px-6 py-14 sm:px-12 sm:py-20 max-w-3xl">
+        <div className="relative px-5 py-10 sm:px-12 sm:py-20 max-w-3xl">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-white/70">
             Biblioteca digital viva
           </p>
-          <h1 className="font-serif text-4xl sm:text-5xl font-bold leading-tight">
+          <h1 className="font-serif text-3xl sm:text-5xl font-bold leading-tight">
             Conocimiento para la justicia socioambiental
           </h1>
           <p className="mt-4 text-lg text-white/90 leading-relaxed">
@@ -61,7 +61,7 @@ export default function Portada() {
       </section>
 
       <section aria-labelledby="categorias">
-        <div className="mb-6 flex items-end justify-between">
+        <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 id="categorias" className="font-serif text-2xl font-bold text-tierra-900">
               Explorar por categoría
@@ -110,7 +110,7 @@ export default function Portada() {
 
       {ultimos.length > 0 && (
         <section aria-labelledby="recientes">
-          <div className="mb-6 flex items-end justify-between">
+          <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <h2 id="recientes" className="font-serif text-2xl font-bold text-tierra-900">
               Últimas actualizaciones
             </h2>

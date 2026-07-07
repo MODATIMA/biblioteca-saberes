@@ -9,7 +9,7 @@ const enlacesPrincipales = [
 export default function Menu() {
   return (
     <header className="border-b border-tierra-200 bg-tierra-50/95 backdrop-blur sticky top-0 z-30">
-      <div className="contenedor flex flex-wrap items-center justify-between gap-4 py-4">
+      <div className="contenedor flex flex-wrap items-center justify-between gap-3 py-3 sm:gap-4 sm:py-4">
         <Link
           to="/"
           className="flex items-center gap-3 no-underline focus:no-underline"

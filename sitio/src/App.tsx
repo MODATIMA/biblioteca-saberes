@@ -10,7 +10,7 @@ export default function App() {
   return (
     <div className="flex min-h-screen flex-col">
       <Menu />
-      <main className="contenedor flex-1 py-10">
+      <main className="contenedor flex-1 py-6 sm:py-10">
         <Routes>
           <Route path="/" element={<Portada />} />
           <Route path="/buscar" element={<Busqueda />} />
