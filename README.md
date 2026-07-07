@@ -103,12 +103,87 @@ Código fuente de la aplicación web.
 
 Documento principal del proyecto.
 
-**Debe explicar:**
+---
 
-- propósito del repositorio
-- estructura de carpetas
-- convenciones utilizadas
-- cómo agregar un nuevo recurso
-- cómo ejecutar el sitio web localmente
-- cómo publicar cambios
-- guía de contribución para colaboradores
+## 🚀 Cómo ejecutar el sitio web
+
+El código de la aplicación está en `sitio/`. Utiliza **Vite + React + TypeScript + Tailwind CSS + React Router + react-markdown + Fuse.js**.
+
+### Requisitos
+
+- Node.js ≥ 20 y npm ≥ 10
+
+### Instalación
+
+```bash
+cd sitio
+npm install
+```
+
+### Desarrollo
+
+```bash
+cd sitio
+npm run dev
+```
+
+El script `dev` primero regenera el índice desde `/recursos` y luego levanta Vite en `http://localhost:5173`.
+
+### Build de producción
+
+```bash
+cd sitio
+npm run build
+```
+
+La salida se escribe en `sitio/dist`.
+
+### Solo regenerar el índice
+
+```bash
+cd sitio
+npm run indice
+```
+
+o bien, desde la raíz del repositorio:
+
+```bash
+node scripts/generar-indice.mjs
+```
+
+---
+
+## 🔎 Cómo funciona el índice
+
+El script `scripts/generar-indice.mjs`:
+
+1. Recorre recursivamente `/recursos`.
+2. Lee cada archivo `.md` y extrae su Frontmatter YAML con `gray-matter`.
+3. Copia los `.md` a `sitio/public/recursos/` para servirlos como estáticos.
+4. Genera `sitio/public/indice-recursos.json` con los metadatos consolidados.
+
+La aplicación consume ese índice para buscador, filtros y navegación. **La fuente de verdad son los archivos Markdown del repositorio**, no una base de datos.
+
+Ambos archivos generados están en `.gitignore` para evitar ruido en los commits.
+
+---
+
+## ➕ Cómo agregar un nuevo recurso
+
+1. Copia la plantilla correspondiente desde `plantillas/`.
+2. Guárdala en la subcarpeta correcta dentro de `recursos/` con nombre en minúsculas y guiones (ej.: `recursos/casos/nombre-del-caso.md`).
+3. Completa el Frontmatter YAML. Campos mínimos:
+   - `id` (único, formato `tipo.tema.identificador`)
+   - `titulo`
+   - `tipo` (uno de: `argumentario`, `concepto`, `campaña`, `territorio`, `cuenca`, `ley`, `caso`, `persona`, `organizacion`, `evento`, `biblioteca`)
+   - `resumen`
+4. Vuelve a ejecutar `npm run indice` (se hace automático en `dev` y `build`).
+
+---
+
+## 🧭 Convenciones
+
+- Los campos `tema`/`temas`, `territorio`/`territorios` se aceptan en singular o plural; el índice los normaliza como listas.
+- Las relaciones entre recursos se declaran vía `relacionados:` con la lista de `id` referenciados.
+- Prefiere texto plano y Markdown estándar (GFM soportado).
+- Nombres de archivo sin acentos ni espacios; el `id` del frontmatter sí puede usar puntos como separador semántico.

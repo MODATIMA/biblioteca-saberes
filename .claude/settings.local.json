@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(npm --version)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(node -e \"const j = require\\('./public/indice-recursos.json'\\); console.log\\('total:', j.total\\); console.log\\('por_tipo:', j.por_tipo\\); console.log\\('primeros 3:', j.recursos.slice\\(0,3\\).map\\(r => \\({id: r.id, tipo: r.tipo, titulo: r.titulo, fecha: r.fecha_actualizacion, temas: r.temas, territorios: r.territorios}\\)\\)\\);\")",
+      "Bash(npx tsc *)",
+      "mcp__ide__getDiagnostics",
+      "Bash(node *)"
+    ]
+  }
+}
