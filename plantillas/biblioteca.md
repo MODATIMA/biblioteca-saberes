@@ -1,25 +1,27 @@
-# Plantilla: Ley (`ley.md`)
+# Plantilla: Biblioteca (`biblioteca.md`)
 
 ```yaml
 ---
 id:
 titulo:
-tipo: ley
+tipo: biblioteca
 
-numero:
+resumen:
 
-pais:
+autor:
 
-estado:
-
-organismo:
+editorial:
 
 fecha_publicacion:
 ultima_actualizacion:
 
 enlace:
 
+tema:
+
 etiquetas:
+
+estado:
 
 relacionados:
 
@@ -31,12 +33,8 @@ fuentes:
 
 ## Resumen
 
-## Texto relevante
+## Utilidad
 
-## Análisis
-
-## Aplicación
-
-## Jurisprudencia relacionada
+## Puntos clave
 
 ## Recursos relacionados

@@ -24,6 +24,18 @@ export default function Metadatos({ recurso }: Props) {
         Metadatos
       </h2>
       <dl>
+        {recurso.enlace && (
+          <Fila etiqueta="Enlace">
+            <a
+              href={recurso.enlace}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-rio-700 underline hover:text-rio-500 break-all"
+            >
+              {recurso.enlace}
+            </a>
+          </Fila>
+        )}
         {recurso.autor && <Fila etiqueta="Autoría">{recurso.autor}</Fila>}
         {recurso.estado && <Fila etiqueta="Estado">{recurso.estado}</Fila>}
         {recurso.fecha_actualizacion && (

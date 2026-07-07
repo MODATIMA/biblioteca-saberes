@@ -27,6 +27,7 @@ export interface EntradaIndice {
   nivel: string | null;
   publico: string[];
   licencia: string | null;
+  enlace: string | null;
   fecha_actualizacion: string | null;
   contenidoResumen: string;
   ruta: string;

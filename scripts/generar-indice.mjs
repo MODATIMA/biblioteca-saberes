@@ -220,6 +220,7 @@ async function main() {
       nivel: normalizarTexto(datos.nivel) || null,
       publico: normalizarLista(datos.publico),
       licencia: normalizarTexto(datos.licencia) || null,
+      enlace: normalizarTexto(datos.enlace || datos.url || datos.sitio_web) || null,
       fecha_actualizacion: extraerFecha(datos),
       contenidoResumen: contenidoTexto.slice(0, 1200),
       ruta: rutaRelativa.replace(/\\/g, '/'),
