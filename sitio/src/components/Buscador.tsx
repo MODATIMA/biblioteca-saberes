@@ -50,7 +50,7 @@ export default function Buscador({ destacado = false, valorInicial = '' }: Props
         onChange={(e) => setConsulta(e.target.value)}
         placeholder={destacado ? 'Buscar recursos…' : 'Buscar…'}
         className={[
-          'min-w-0 flex-1 border-0 bg-transparent outline-none placeholder:text-tierra-400',
+          'min-w-0 flex-1 border-0 bg-transparent text-tierra-900 outline-none placeholder:text-tierra-400',
           destacado ? 'text-base sm:text-lg py-2' : 'text-base py-1.5',
         ].join(' ')}
       />
