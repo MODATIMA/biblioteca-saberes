@@ -26,7 +26,7 @@ export default function Buscador({ destacado = false, valorInicial = '' }: Props
       ].join(' ')}
     >
       <label htmlFor="buscador-input" className="sr-only">
-        Buscar en el Centro de Conocimiento
+        Buscar en la Biblioteca de Saberes
       </label>
       <span aria-hidden className="flex items-center pl-3 text-tierra-500">
         <svg
@@ -51,7 +51,7 @@ export default function Buscador({ destacado = false, valorInicial = '' }: Props
         placeholder={
           destacado
             ? 'Buscar argumentarios, campañas, cuencas, leyes…'
-            : 'Buscar en el centro de conocimiento…'
+            : 'Buscar en la biblioteca de saberes…'
         }
         className={[
           'flex-1 border-0 bg-transparent outline-none placeholder:text-tierra-400',

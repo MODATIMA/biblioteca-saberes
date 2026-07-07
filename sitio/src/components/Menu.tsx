@@ -19,11 +19,11 @@ export default function Menu() {
             aria-hidden
             className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-rio-600 text-tierra-50 font-serif text-lg font-bold"
           >
-            CC
+            BS
           </span>
           <span className="leading-tight">
             <span className="block font-serif text-lg font-bold text-tierra-900">
-              Centro de Conocimiento
+              Biblioteca de Saberes
             </span>
             <span className="block text-xs uppercase tracking-widest text-rio-700">MODATIMA</span>
           </span>

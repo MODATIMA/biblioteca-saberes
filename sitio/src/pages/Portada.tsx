@@ -25,7 +25,7 @@ export default function Portada() {
   }, []);
 
   if (error) return <ErrorMensaje mensaje={error} />;
-  if (!indice) return <Cargando texto="Cargando el centro de conocimiento…" />;
+  if (!indice) return <Cargando texto="Cargando la biblioteca de saberes…" />;
 
   return (
     <div className="space-y-16">

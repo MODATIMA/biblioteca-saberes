@@ -27,8 +27,8 @@ export default function Relacionados({ ids }: Props) {
       <section>
         <h2 className="font-serif text-xl font-semibold mb-3">Recursos relacionados</h2>
         <p className="text-sm text-tierra-600">
-          Este recurso menciona {ids.length} referencia(s) que aún no están publicadas en el Centro
-          de Conocimiento.
+          Este recurso menciona {ids.length} referencia(s) que aún no están publicadas en la
+          Biblioteca de Saberes.
         </p>
       </section>
     );

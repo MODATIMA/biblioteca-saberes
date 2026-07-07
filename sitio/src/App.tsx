@@ -22,7 +22,7 @@ export default function App() {
       <footer className="border-t border-tierra-200 bg-white">
         <div className="contenedor py-8 text-sm text-tierra-600">
           <p className="font-serif text-base font-semibold text-tierra-900">
-            Centro de Conocimiento MODATIMA
+            Biblioteca de Saberes MODATIMA
           </p>
           <p className="mt-1">
             Movimiento por la Defensa del Acceso al Agua, la Tierra y la Protección del
