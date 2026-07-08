@@ -1,9 +1,9 @@
 ---
 id: territorio.santiago
-titulo: Ciudad de Santiago
+titulo: MODATIMA Santiago
 tipo: territorio
 
-nombre: Ciudad de Santiago
+nombre: MODATIMA1 Santiago
 
 tipo_territorio:
   - ciudad
@@ -33,7 +33,7 @@ casos:
 
 campañas:
 
-cuencas:
+cuencas: cuenca.rio-maipo
 
 etiquetas:
   - Región Metropolitana
