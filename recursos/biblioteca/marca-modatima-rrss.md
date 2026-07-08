@@ -15,6 +15,7 @@ etiquetas:
   - marca
   - logos
   - imagenes
+  - redes sociales
 
 estado: vigente
 
