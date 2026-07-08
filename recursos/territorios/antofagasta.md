@@ -1,9 +1,9 @@
 ---
 id: territorio.antofagasta
-titulo: Región de Antofagasta
+titulo: MODATIMA Antofagasta
 tipo: territorio
 
-nombre: Región de Antofagasta
+nombre: MODATIMA Antofagasta
 
 tipo_territorio:
   - región

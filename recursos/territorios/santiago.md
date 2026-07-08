@@ -3,7 +3,7 @@ id: territorio.santiago
 titulo: MODATIMA Santiago
 tipo: territorio
 
-nombre: MODATIMA1 Santiago
+nombre: MODATIMA Santiago
 
 tipo_territorio:
   - ciudad

@@ -1,9 +1,9 @@
 ---
 id: territorio.petorca
-titulo: Provincia de Petorca
+titulo: MODATIMA Petorca
 tipo: territorio
 
-nombre: Provincia de Petorca
+nombre: MODATIMA Petorca
 
 tipo_territorio:
   - provincia

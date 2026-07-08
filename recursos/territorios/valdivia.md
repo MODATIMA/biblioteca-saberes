@@ -1,9 +1,9 @@
 ---
 id: territorio.valdivia
-titulo: Ciudad de Valdivia
+titulo: MODATIMA Valdivia
 tipo: territorio
 
-nombre: Ciudad de Valdivia
+nombre: MODATIMA Valdivia
 
 tipo_territorio:
   - ciudad

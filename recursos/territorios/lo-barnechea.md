@@ -1,9 +1,9 @@
 ---
 id: territorio.lo-barnechea
-titulo: Comuna de Lo Barnechea
+titulo: MODATIMA Lo Barnechea
 tipo: territorio
 
-nombre: Comuna de Lo Barnechea
+nombre: MODATIMA Lo Barnechea
 
 tipo_territorio:
   - comuna

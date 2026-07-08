@@ -1,9 +1,9 @@
 ---
 id: territorio.wallmapu
-titulo: Wallmapu
+titulo: MODATIMA Wallmapu
 tipo: territorio
 
-nombre: Wallmapu
+nombre: MODATIMA Wallmapu
 
 tipo_territorio:
   - territorio ancestral

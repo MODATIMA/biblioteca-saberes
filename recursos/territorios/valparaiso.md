@@ -1,9 +1,9 @@
 ---
 id: territorio.valparaiso
-titulo: Región de Valparaíso
+titulo: MODATIMA Valparaíso
 tipo: territorio
 
-nombre: Región de Valparaíso
+nombre: MODATIMA Valparaíso
 
 tipo_territorio:
   - región

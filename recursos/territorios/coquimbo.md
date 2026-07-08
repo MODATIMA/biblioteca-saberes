@@ -1,9 +1,9 @@
 ---
 id: territorio.coquimbo
-titulo: Región de Coquimbo
+titulo: MODATIMA Coquimbo
 tipo: territorio
 
-nombre: Región de Coquimbo
+nombre: MODATIMA Coquimbo
 
 tipo_territorio:
   - región

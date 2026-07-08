@@ -1,9 +1,9 @@
 ---
 id: territorio.pirque
-titulo: Comuna de Pirque
+titulo: MODATIMA Pirque
 tipo: territorio
 
-nombre: Comuna de Pirque
+nombre: MODATIMA Pirque
 
 tipo_territorio:
   - comuna
