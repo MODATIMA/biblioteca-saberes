@@ -13,7 +13,7 @@ comunas:
 
 rio_principal: Río Puelo (emisario del lago Puelo, Argentina)
 
-superficie: ≈ 8.800 km² (binacional: 3.000 km² Chile + 5.800 km² Argentina)
+superficie: "≈ 8.800 km² (binacional: 3.000 km² Chile + 5.800 km² Argentina)"
 # fuente: https://es.wikipedia.org/wiki/R%C3%ADo_Puelo
 
 ecosistemas:

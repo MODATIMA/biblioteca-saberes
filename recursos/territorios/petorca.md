@@ -46,7 +46,7 @@ etiquetas:
 relacionados:
   - cuenca.rio-petorca
   - caso.petorca-crisis-hidrica
-  - argumentario.agua.derecho-humano
+  - argumentario.agua-derecho-humano
 
 adjuntos:
 

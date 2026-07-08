@@ -49,7 +49,7 @@ casos:
 # fuente: https://rehuirelolvido.indh.cl/caso/petorcasinagua/
 
 campañas:
-  - "No más robo de agua" (MODATIMA)
+  - 'No más robo de agua (MODATIMA)'
 # fuente: http://modatima.cl/
 
 legislacion:

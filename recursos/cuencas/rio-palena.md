@@ -14,7 +14,7 @@ comunas:
 
 rio_principal: Río Palena
 
-superficie: ≈ 12.867 km² (binacional: 7.281 km² Chile ≈ 56,5% + 5.586 km² Argentina)
+superficie: "≈ 12.867 km² (binacional: 7.281 km² Chile ≈ 56,5% + 5.586 km² Argentina)"
 # fuente: https://es.wikipedia.org/wiki/Cuenca_del_r%C3%ADo_Palena
 
 ecosistemas:

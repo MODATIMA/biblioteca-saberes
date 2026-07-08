@@ -42,7 +42,7 @@ etiquetas:
   - ruralidad
 
 relacionados:
-  - argumentario.agua.derecho-humano
+  - argumentario.agua-derecho-humano
 
 adjuntos:
 

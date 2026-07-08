@@ -21,7 +21,7 @@ etiquetas:
   - propiedad
 
 relacionados:
-  - argumentario.agua.derecho-humano
+  - argumentario.agua-derecho-humano
   - cuenca.rio-petorca
 
 adjuntos:

@@ -1,5 +1,5 @@
 ---
-id: evento.encuentro-nacional-agua-2026
+id: evento.202603-encuentro-nacional-agua
 titulo: Encuentro Nacional por el Agua 2026
 tipo: evento
 

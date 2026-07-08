@@ -22,7 +22,7 @@ fecha_creacion: 2026-01-20
 ultima_actualizacion: 2026-07-07
 
 relacionados:
-  - argumentario.agua.derecho-humano
+  - argumentario.agua-derecho-humano
   - concepto.caudal-ecologico
 
 adjuntos:

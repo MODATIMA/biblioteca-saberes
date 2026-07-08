@@ -14,7 +14,7 @@ comunas:
 
 rio_principal: Río Yelcho (emisario del lago Yelcho, alimentado por el Futaleufú)
 
-superficie: ≈ 11.600 km² (binacional: 3.900 km² Chile + 7.700 km² Argentina)
+superficie: "≈ 11.600 km² (binacional: 3.900 km² Chile + 7.700 km² Argentina)"
 # fuente: https://es.wikipedia.org/wiki/Cuenca_del_r%C3%ADo_Yelcho
 
 ecosistemas:

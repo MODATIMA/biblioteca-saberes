@@ -31,8 +31,7 @@ etiquetas:
   - salud pública
 
 relacionados:
-  - caso.quintero-puchuncavi
-  - argumentario.agua.derecho-humano
+  - argumentario.agua-derecho-humano
 
 adjuntos:
 ---

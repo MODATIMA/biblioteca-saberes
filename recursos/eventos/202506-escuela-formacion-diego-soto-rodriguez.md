@@ -1,5 +1,5 @@
 ---
-id: evento.escuela-formacion-diego-soto-rodriguez
+id: evento.202506-escuela-formacion-diego-soto-rodriguez
 titulo: Escuela de formación Diego Soto rodriguez
 tipo: evento
 

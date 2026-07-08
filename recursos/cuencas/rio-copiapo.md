@@ -41,7 +41,7 @@ organizaciones:
 
 casos:
   - Sobreotorgamiento indiscriminado de derechos de agua
-  - "Muerte del río" por 15 años (cauce seco antes del aluvión 2015)
+  - '"Muerte del río" por 15 años (cauce seco antes del aluvión 2015)'
   - Aluvión de marzo 2015 con daños humanos y ambientales
   - Recuperación parcial del parque Kaukari (2024)
 # fuente: https://www.derechoalagua.cl/mapa-de-conflictos/copiapo-seco-por-indiscriminado-otorgamiento-de-derechos-de-aguas/

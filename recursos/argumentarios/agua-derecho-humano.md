@@ -1,5 +1,5 @@
 ---
-id: argumentario.agua.derecho-humano
+id: argumentario.agua-derecho-humano
 titulo: El agua es un derecho humano
 tipo: argumentario
 resumen: Fundamentos, evidencia y respuestas frecuentes en torno al reconocimiento del agua como derecho humano en Chile y el mundo.

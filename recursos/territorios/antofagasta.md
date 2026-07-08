@@ -42,7 +42,7 @@ etiquetas:
   - desierto de Atacama
 
 relacionados:
-  - argumentario.agua.derecho-humano
+  - argumentario.agua-derecho-humano
 
 adjuntos:
 

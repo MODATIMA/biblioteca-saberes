@@ -22,7 +22,7 @@ fecha_publicacion: 2020-08-01
 ultima_actualizacion: 2026-05-01
 
 relacionados:
-  - argumentario.agua.derecho-humano
+  - argumentario.agua-derecho-humano
   - concepto.derecho-humano-agua
 
 fuentes:

@@ -31,7 +31,7 @@ etiquetas:
 relacionados:
   - territorio.petorca
   - cuenca.rio-petorca
-  - argumentario.agua.derecho-humano
+  - argumentario.agua-derecho-humano
   - ley.codigo-aguas-chile
 
 adjuntos:

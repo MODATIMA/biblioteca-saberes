@@ -15,7 +15,7 @@ comunas:
 
 rio_principal: Río La Ligua
 
-superficie: 1.980 km²; con río Alicahue como cabecera: 3.037 km²
+superficie: "1.980 km²; con río Alicahue como cabecera: 3.037 km²"
 # fuente: https://es.wikipedia.org/wiki/R%C3%ADo_La_Ligua
 
 ecosistemas:

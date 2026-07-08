@@ -43,7 +43,7 @@ etiquetas:
 
 relacionados:
   - territorio.pirque
-  - argumentario.agua.derecho-humano
+  - argumentario.agua-derecho-humano
 
 adjuntos:
 
