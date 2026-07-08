@@ -56,8 +56,3 @@ Organización de base comunitaria; no aplica listado exhaustivo público.
 ## Campañas
 
 - «No más zonas de sacrificio»
-
-## Recursos relacionados
-
-- Territorio: Petorca
-- Caso: crisis hídrica de Petorca

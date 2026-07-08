@@ -44,8 +44,3 @@ Consulta el sitio oficial de la Relatoría Especial:
 
 Documento de referencia obligada para la incidencia legislativa y la
 argumentación jurídica en Chile.
-
-## Recursos relacionados
-
-- Concepto: derecho humano al agua
-- Argumentario: agua como derecho humano

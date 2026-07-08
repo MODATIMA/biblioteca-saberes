@@ -64,12 +64,6 @@ derechos.
 - Cortes de suministro por razones económicas violan el criterio de
   asequibilidad.
 
-## Conceptos relacionados
-
-- Caudal ecológico
-- Soberanía hídrica
-- Justicia hídrica
-
 ## Bibliografía
 
 Ver fuentes en el frontmatter.

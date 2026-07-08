@@ -52,9 +52,3 @@ deja de ser río.
 En cuencas fuertemente intervenidas como la del río Petorca, la ausencia de
 caudal ecológico documentado por décadas es una de las claves de la crisis
 socioambiental.
-
-## Conceptos relacionados
-
-- Derecho humano al agua
-- Cuenca hidrográfica
-- Servicios ecosistémicos

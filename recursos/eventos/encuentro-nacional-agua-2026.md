@@ -88,11 +88,6 @@ A publicar tras el evento.
 
 Ver campañas y organización responsable.
 
-## Recursos relacionados
-
-- Organización: MODATIMA
-- Territorio: Petorca
-
 ## Próximas acciones
 
 Definición de plan operativo 2027.

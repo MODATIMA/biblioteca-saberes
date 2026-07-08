@@ -113,9 +113,3 @@ Dirección General de Aguas.
 ## Bibliografía
 
 Referencias en la sección de fuentes del frontmatter.
-
-## Recursos relacionados
-
-- Concepto: derecho humano al agua
-- Ley: Código de Aguas de Chile
-- Caso: crisis hídrica en Petorca

@@ -48,9 +48,3 @@ extractivista de agua.
 ## Publicaciones
 
 Diversas entrevistas y columnas en medios nacionales e internacionales.
-
-## Recursos relacionados
-
-- Organización: MODATIMA
-- Territorio: Petorca
-- Caso: crisis hídrica de Petorca

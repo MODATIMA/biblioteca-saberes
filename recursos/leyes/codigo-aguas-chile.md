@@ -57,7 +57,3 @@ Aplica a todas las aguas terrestres del territorio nacional.
 Numerosos fallos de la Corte Suprema han abordado conflictos entre derechos
 de aprovechamiento y garantías fundamentales.
 
-## Recursos relacionados
-
-- Argumentario: El agua es un derecho humano
-- Cuenca: río Petorca

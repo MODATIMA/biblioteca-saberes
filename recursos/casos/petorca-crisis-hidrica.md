@@ -79,10 +79,3 @@ sobreotorgamiento acumulado.
 ## Documentación
 
 Ver adjuntos y fuentes indicadas en el frontmatter.
-
-## Recursos relacionados
-
-- Territorio: provincia de Petorca
-- Cuenca: río Petorca
-- Argumentario: agua como derecho humano
-- Ley: Código de Aguas de Chile
