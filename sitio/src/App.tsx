@@ -30,7 +30,7 @@ export default function App() {
           </p>
           <p className="mt-3 text-xs text-tierra-500">
             La fuente de verdad de este sitio son los archivos Markdown del repositorio{' '}
-            <code className="rounded bg-tierra-100 px-1">centro-conocimiento</code>.
+            <code className="rounded bg-tierra-100 px-1">https://github.com/metropolitanomodatima/biblioteca-saberes</code>.
           </p>
         </div>
       </footer>
