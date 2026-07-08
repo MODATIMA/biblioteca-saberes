@@ -1,9 +1,9 @@
 ---
-id: evento.encuentro-en-winkelhue
-titulo: Encuentro en Winkelhue
+id: evento.escuela-formacion-diego-soto-rodriguez
+titulo: Escuela de formación Diego Soto rodriguez
 tipo: evento
 
-nombre: Encuentro en Winkelhue
+nombre: Escuela de formación Diego Soto rodriguez
 
 categoria:
   - encuentro
@@ -13,12 +13,12 @@ fecha_fin: julio 2025
 
 hora: 09:00
 
-ubicacion: ladera norte del cerro Tupahue ("San Cristóbal")
+ubicacion: santiago
 
 territorio:
   - territorio.santiago
 
-organizador: MODATIMA, Winkelhue
+organizador: MODATIMA
 
 participantes:
   - Comunidades del territorio
@@ -35,7 +35,6 @@ campaña:
 etiquetas:
   - encuentro
   - santiago
-  - reforestación
 
 relacionados:
   - organizacion.modatima
@@ -84,12 +83,16 @@ Por documentar tras la realización del encuentro.
 
 ## Material generado
 
-Afiche de la actividad:
+Afiche de la actividad Winkelhue:
 <https://drive.google.com/file/d/1JPW6hbAF13alOA-NxAreQ3k2IlcRoddF/view?usp=sharing>
 
 ## Fotografías y registros
 
-A publicar tras el evento.
+<https://www.instagram.com/p/DMlwCJoR2rd/>
+<https://www.instagram.com/p/DMndlqQRe6b/?img_index=1>
+<https://www.instagram.com/p/DMogCrpxVif/>
+<https://www.instagram.com/p/DMq7oNhNsnB/?img_index=1>
+<https://www.instagram.com/p/DMrS60qNKWO/>
 
 ## Comunicados relacionados
 
