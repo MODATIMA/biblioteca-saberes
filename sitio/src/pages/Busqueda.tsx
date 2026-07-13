@@ -102,19 +102,21 @@ export default function Busqueda() {
             <ul className="space-y-1">
               {CATEGORIAS.filter((c) => tiposVisibles == null ? true : (tiposVisibles as string[]).includes(c.tipo)).map((c) => {
                 const activo = tipos.includes(c.tipo);
+                const total = todos ? todos.filter((r) => r.tipo === c.tipo).length : null;
                 return (
                   <li key={c.tipo}>
                     <button
                       type="button"
                       onClick={() => alternar('tipo', c.tipo)}
                       className={[
-                        'w-full text-left rounded-md px-2 py-1 text-sm transition',
+                        'w-full text-left rounded-md px-2 py-1 text-sm transition flex justify-between',
                         activo
                           ? 'bg-rio-100 text-rio-800 font-semibold'
                           : 'text-tierra-700 hover:bg-tierra-100',
                       ].join(' ')}
                     >
-                      {c.etiquetaPlural}
+                      <span>{c.etiquetaPlural}</span>
+                      {total !== null && <span className="text-tierra-500">{total}</span>}
                     </button>
                   </li>
                 );
