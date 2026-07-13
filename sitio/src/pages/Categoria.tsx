@@ -17,28 +17,55 @@ export default function Categoria() {
   const [items, setItems] = useState<EntradaIndice[] | null>(null);
   const [filtroTema, setFiltroTema] = useState<string | null>(null);
   const [filtroTerritorio, setFiltroTerritorio] = useState<string | null>(null);
+  const [filtroRegion, setFiltroRegion] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
+  const usaRegion = categoria?.tipo === 'cuenca' || categoria?.tipo === 'territorio';
+
   useEffect(() => {
-    if (!categoria) return;
+    if (!categoria || tiposVisibles === undefined) return;
     setItems(null);
     setFiltroTema(null);
     setFiltroTerritorio(null);
+    setFiltroRegion(null);
     listarPorTipo(categoria.tipo)
       .then(setItems)
       .catch((e) => setError(e.message));
-  }, [categoria]);
+  }, [categoria, tiposVisibles]);
 
   const facetas = useMemo(() => (items ? extraerFacetas(items) : null), [items]);
+
+  const facetasRegion = useMemo(() => {
+    if (!items || !usaRegion) return [];
+    const conteo = new Map<string, number>();
+    for (const r of items) {
+      if (r.region) conteo.set(r.region, (conteo.get(r.region) ?? 0) + 1);
+    }
+    return Array.from(conteo.entries())
+      .map(([valor, total]) => ({ valor, total }))
+      .sort((a, b) => a.valor.localeCompare(b.valor, 'es'));
+  }, [items, usaRegion]);
 
   const filtrados = useMemo(() => {
     if (!items) return null;
     return items.filter((r) => {
       if (filtroTema && !r.temas.includes(filtroTema)) return false;
-      if (filtroTerritorio && !r.territorios.includes(filtroTerritorio)) return false;
+      if (!usaRegion && filtroTerritorio && !r.territorios.includes(filtroTerritorio)) return false;
+      if (usaRegion && filtroRegion && r.region !== filtroRegion) return false;
       return true;
     });
-  }, [items, filtroTema, filtroTerritorio]);
+  }, [items, filtroTema, filtroTerritorio, filtroRegion, usaRegion]);
+
+  const porRegion = useMemo(() => {
+    if (!filtrados || !usaRegion) return null;
+    const grupos = new Map<string, typeof filtrados>();
+    for (const r of filtrados) {
+      const clave = r.region ?? 'Sin región';
+      if (!grupos.has(clave)) grupos.set(clave, []);
+      grupos.get(clave)!.push(r);
+    }
+    return Array.from(grupos.entries()).sort(([a], [b]) => a.localeCompare(b, 'es'));
+  }, [filtrados, categoria]);
 
   if (!categoria) {
     return (
@@ -49,7 +76,7 @@ export default function Categoria() {
     );
   }
 
-  if (tiposVisibles && !(tiposVisibles as string[]).includes(categoria.tipo)) {
+  if (tiposVisibles != null && !(tiposVisibles as string[]).includes(categoria.tipo)) {
     return (
       <div className="mx-auto max-w-lg py-20 text-center">
         <p className="text-tierra-700">
@@ -79,7 +106,7 @@ export default function Categoria() {
         </p>
       </header>
 
-      {(facetas.temas.length > 0 || facetas.territorios.length > 0) && (
+      {(facetas.temas.length > 0 || (!usaRegion && facetas.territorios.length > 0) || facetasRegion.length > 0) && (
         <section aria-label="Filtros" className="rounded-xl border border-tierra-200 bg-white p-4">
           {facetas.temas.length > 0 && (
             <div className="mb-3">
@@ -118,7 +145,44 @@ export default function Categoria() {
             </div>
           )}
 
-          {facetas.territorios.length > 0 && (
+          {usaRegion && facetasRegion.length > 0 && (
+            <div>
+              <h2 className="mb-2 text-xs font-semibold uppercase tracking-widest text-tierra-500">
+                Región
+              </h2>
+              <div className="flex flex-wrap gap-1.5">
+                <button
+                  type="button"
+                  onClick={() => setFiltroRegion(null)}
+                  className={[
+                    'inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium',
+                    filtroRegion == null
+                      ? 'border-rio-500 bg-rio-50 text-rio-700'
+                      : 'border-tierra-200 text-tierra-700 hover:border-rio-400',
+                  ].join(' ')}
+                >
+                  Todas
+                </button>
+                {facetasRegion.map(({ valor, total }) => (
+                  <button
+                    key={valor}
+                    type="button"
+                    onClick={() => setFiltroRegion(valor === filtroRegion ? null : valor)}
+                    className={[
+                      'inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium',
+                      valor === filtroRegion
+                        ? 'border-rio-500 bg-rio-100 text-rio-800'
+                        : 'border-tierra-200 text-tierra-700 hover:border-rio-400',
+                    ].join(' ')}
+                  >
+                    {valor} <span className="ml-1 text-tierra-500">({total})</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {!usaRegion && facetas.territorios.length > 0 && (
             <div>
               <h2 className="mb-2 text-xs font-semibold uppercase tracking-widest text-tierra-500">
                 Territorios
@@ -179,18 +243,39 @@ export default function Categoria() {
             {filtroTema && (
               <Etiqueta texto={`Tema: ${filtroTema}`} tipo="tema" />
             )}
-            {filtroTerritorio && (
+            {!usaRegion && filtroTerritorio && (
               <Etiqueta texto={`Territorio: ${filtroTerritorio}`} tipo="territorio" />
+            )}
+            {usaRegion && filtroRegion && (
+              <Etiqueta texto={`Región: ${filtroRegion}`} tipo="territorio" />
             )}
             <span className="text-sm text-tierra-500">
               {filtrados.length} de {items.length}
             </span>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {filtrados.map((r) => (
-              <TarjetaRecurso key={r.id} recurso={r} />
-            ))}
-          </div>
+          {porRegion ? (
+            <div className="space-y-10">
+              {porRegion.map(([region, recursos]) => (
+                <section key={region}>
+                  <h2 className="mb-3 text-sm font-semibold uppercase tracking-widest text-tierra-500 border-b border-tierra-200 pb-1">
+                    {region}
+                    <span className="ml-2 font-normal normal-case text-tierra-400">({recursos.length})</span>
+                  </h2>
+                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {recursos.map((r) => (
+                      <TarjetaRecurso key={r.id} recurso={r} />
+                    ))}
+                  </div>
+                </section>
+              ))}
+            </div>
+          ) : (
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {filtrados.map((r) => (
+                <TarjetaRecurso key={r.id} recurso={r} />
+              ))}
+            </div>
+          )}
         </>
       )}
     </div>

@@ -31,6 +31,7 @@ export interface FiltrosBusqueda {
   tipos?: TipoRecurso[];
   temas?: string[];
   territorios?: string[];
+  regiones?: string[];
 }
 
 function pasaFiltros(r: EntradaIndice, f: FiltrosBusqueda | undefined): boolean {
@@ -38,6 +39,7 @@ function pasaFiltros(r: EntradaIndice, f: FiltrosBusqueda | undefined): boolean 
   if (f.tipos?.length && !f.tipos.includes(r.tipo)) return false;
   if (f.temas?.length && !f.temas.some((t) => r.temas.includes(t))) return false;
   if (f.territorios?.length && !f.territorios.some((t) => r.territorios.includes(t))) return false;
+  if (f.regiones?.length && !f.regiones.some((reg) => r.region === reg)) return false;
   return true;
 }
 

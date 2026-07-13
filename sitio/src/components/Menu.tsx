@@ -11,7 +11,7 @@ const enlacesPrincipales = [
 export default function Menu() {
   const tiposVisibles = useTiposVisibles();
   const categoriasFiltradas = CATEGORIAS.filter(
-    (c) => !tiposVisibles || (tiposVisibles as string[]).includes(c.tipo),
+    (c) => tiposVisibles == null ? true : (tiposVisibles as string[]).includes(c.tipo),
   );
 
   return (

@@ -222,6 +222,7 @@ async function main() {
       licencia: normalizarTexto(datos.licencia) || null,
       enlace: normalizarTexto(datos.enlace || datos.url || datos.sitio_web) || null,
       fecha_actualizacion: extraerFecha(datos),
+      region: normalizarTexto(datos.region) || null,
       contenidoResumen: contenidoTexto.slice(0, 1200),
       ruta: rutaRelativa.replace(/\\/g, '/'),
     });

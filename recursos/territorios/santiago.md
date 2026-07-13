@@ -5,8 +5,13 @@ tipo: territorio
 
 nombre: MODATIMA Santiago
 
-territorio:
-  - chile
+tipo_territorio:
+  - ciudad
+
+pais: Chile
+region: Metropolitana
+provincia: Santiago
+comuna: Santiago
 
 ubicacion: Zona central de Chile, cuenca de Santiago, entre la cordillera de la costa y la de los Andes.
 

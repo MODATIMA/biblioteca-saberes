@@ -7,7 +7,7 @@ import TarjetaRecurso from '@/components/TarjetaRecurso';
 import { CATEGORIAS } from '@/types/recurso';
 import type { EntradaIndice, TipoRecurso } from '@/types/recurso';
 import { buscar, type FiltrosBusqueda } from '@/services/busqueda';
-import { cargarIndice, extraerFacetas } from '@/services/indice';
+import { cargarIndice, extraerFacetas, extraerRegiones } from '@/services/indice';
 import { useTiposVisibles } from '@/controllers/useTiposVisibles';
 
 export default function Busqueda() {
@@ -16,13 +16,14 @@ export default function Busqueda() {
   const consulta = params.get('q') ?? '';
   const tiposClave = params.getAll('tipo').join(',');
   const tema = params.get('tema');
-  const territorio = params.get('territorio');
+  const region = params.get('region');
 
   const [resultados, setResultados] = useState<EntradaIndice[] | null>(null);
   const [todos, setTodos] = useState<EntradaIndice[] | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    if (tiposVisibles === undefined) return;
     cargarIndice()
       .then((i) => {
         const recursos = tiposVisibles
@@ -42,9 +43,9 @@ export default function Busqueda() {
     () => ({
       tipos: tipos.length ? tipos : undefined,
       temas: tema ? [tema] : undefined,
-      territorios: territorio ? [territorio] : undefined,
+      regiones: region ? [region] : undefined,
     }),
-    [tipos, tema, territorio],
+    [tipos, tema, region],
   );
 
   useEffect(() => {
@@ -60,9 +61,10 @@ export default function Busqueda() {
   }, [consulta, filtros, tiposVisibles]);
 
   const facetas = useMemo(() => (todos ? extraerFacetas(todos) : null), [todos]);
+  const regiones = useMemo(() => (todos ? extraerRegiones(todos) : null), [todos]);
 
   const alternar = useCallback(
-    (llave: 'tipo' | 'tema' | 'territorio', valor: string) => {
+    (llave: 'tipo' | 'tema' | 'region', valor: string) => {
       const nuevos = new URLSearchParams(params);
       if (llave === 'tipo') {
         const actual = nuevos.getAll('tipo');
@@ -98,7 +100,7 @@ export default function Busqueda() {
               Tipo de recurso
             </h2>
             <ul className="space-y-1">
-              {CATEGORIAS.filter((c) => !tiposVisibles || (tiposVisibles as string[]).includes(c.tipo)).map((c) => {
+              {CATEGORIAS.filter((c) => tiposVisibles == null ? true : (tiposVisibles as string[]).includes(c.tipo)).map((c) => {
                 const activo = tipos.includes(c.tipo);
                 return (
                   <li key={c.tipo}>
@@ -150,19 +152,19 @@ export default function Busqueda() {
             </section>
           )}
 
-          {facetas && facetas.territorios.length > 0 && (
+          {regiones && regiones.length > 0 && (
             <section>
               <h2 className="mb-2 text-xs font-semibold uppercase tracking-widest text-tierra-500">
-                Territorio
+                Región
               </h2>
               <ul className="space-y-1">
-                {facetas.territorios.slice(0, 15).map(({ valor, total }) => {
-                  const activo = territorio === valor;
+                {regiones.slice(0, 15).map(({ valor, total }) => {
+                  const activo = region === valor;
                   return (
                     <li key={valor}>
                       <button
                         type="button"
-                        onClick={() => alternar('territorio', valor)}
+                        onClick={() => alternar('region', valor)}
                         className={[
                           'w-full text-left rounded-md px-2 py-1 text-sm transition flex justify-between',
                           activo

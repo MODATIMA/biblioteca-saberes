@@ -54,7 +54,7 @@ export default function Recurso() {
   if (error) return <ErrorMensaje mensaje={error} />;
   if (!recurso) return <Cargando texto="Cargando recurso…" />;
 
-  if (tiposVisibles && !(tiposVisibles as string[]).includes(recurso.tipo)) {
+  if (tiposVisibles != null && !(tiposVisibles as string[]).includes(recurso.tipo)) {
     return (
       <div className="mx-auto max-w-lg py-20 text-center">
         <p className="text-tierra-700">

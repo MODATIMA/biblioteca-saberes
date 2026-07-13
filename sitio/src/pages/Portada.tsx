@@ -20,7 +20,7 @@ export default function Portada() {
   const [error, setError] = useState<string | null>(null);
 
   function filtrar(lista: EntradaIndice[]): EntradaIndice[] {
-    if (!tiposVisibles) return lista;
+    if (tiposVisibles == null) return lista;
     return lista.filter((r) => (tiposVisibles as string[]).includes(r.tipo));
   }
 

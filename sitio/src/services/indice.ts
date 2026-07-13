@@ -53,6 +53,16 @@ export async function destacados(n = 4): Promise<EntradaIndice[]> {
     .slice(0, n);
 }
 
+export function extraerRegiones(recursos: EntradaIndice[]) {
+  const cuenta = new Map<string, number>();
+  for (const r of recursos) {
+    if (r.region) cuenta.set(r.region, (cuenta.get(r.region) ?? 0) + 1);
+  }
+  return [...cuenta.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'es'))
+    .map(([valor, total]) => ({ valor, total }));
+}
+
 export function extraerFacetas(recursos: EntradaIndice[]) {
   const contar = (llave: 'temas' | 'territorios' | 'etiquetas') => {
     const cuenta = new Map<string, number>();

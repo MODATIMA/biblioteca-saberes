@@ -3,11 +3,9 @@ import { useSesion } from './useSesion';
 
 const TIPOS_PUBLICOS: TipoRecurso[] = ['concepto', 'territorio', 'cuenca', 'ley', 'caso'];
 
-export function useTiposVisibles(): TipoRecurso[] | null {
+export function useTiposVisibles(): TipoRecurso[] | null | undefined {
   const { sesion, cargando } = useSesion();
-  // Mientras carga asumimos usuario anónimo (más restrictivo)
-  if (cargando) return TIPOS_PUBLICOS;
-  // Usuario logueado ve todo
+  if (cargando) return undefined;
   if (sesion) return null;
   return TIPOS_PUBLICOS;
 }

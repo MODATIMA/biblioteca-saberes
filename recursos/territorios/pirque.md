@@ -5,8 +5,13 @@ tipo: territorio
 
 nombre: MODATIMA Pirque
 
-territorio:
-  - chile
+tipo_territorio:
+  - comuna
+
+pais: Chile
+region: Metropolitana
+provincia: Cordillera
+comuna: Pirque
 
 ubicacion: Zona sur oriente de la Región Metropolitana, precordillera andina.
 
