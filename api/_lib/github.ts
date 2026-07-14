@@ -7,9 +7,11 @@ const BOT_TOKEN = () => {
 };
 
 function ghFetch(path: string, init?: RequestInit, token?: string) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 8000);
   return fetch(`https://api.github.com${path}`, {
     ...init,
-    signal: AbortSignal.timeout(8000),
+    signal: controller.signal,
     headers: {
       'Authorization': `Bearer ${token ?? BOT_TOKEN()}`,
       'Accept': 'application/vnd.github+json',
@@ -17,7 +19,7 @@ function ghFetch(path: string, init?: RequestInit, token?: string) {
       'Content-Type': 'application/json',
       ...(init?.headers ?? {}),
     },
-  });
+  }).finally(() => clearTimeout(timer));
 }
 
 export async function esMiembroOrg(login: string, userToken: string): Promise<boolean> {
@@ -25,6 +27,20 @@ export async function esMiembroOrg(login: string, userToken: string): Promise<bo
   const r = await ghFetch(`/orgs/${ORG()}/members/${login}`, { method: 'GET' }, userToken);
   console.log(`[esMiembroOrg] GET /orgs/${ORG()}/members/${login} → ${r.status}`);
   return r.status === 204;
+}
+
+export async function listarMiembrosOrg(): Promise<string[]> {
+  const logins: string[] = [];
+  let page = 1;
+  while (true) {
+    const r = await ghFetch(`/orgs/${ORG()}/members?per_page=100&page=${page}`);
+    if (!r.ok) throw new Error(`No se pudo listar miembros de la org: ${r.status}`);
+    const data = await r.json() as Array<{ login: string }>;
+    logins.push(...data.map((m) => m.login));
+    if (data.length < 100) break;
+    page++;
+  }
+  return logins;
 }
 
 

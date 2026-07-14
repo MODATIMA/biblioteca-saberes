@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSesion } from '@/controllers/useSesion';
+import { useRolPermitido } from '@/controllers/useRolPermitido';
 import { urlLogin } from '@/services/sesion';
 import Dialogo from '@/components/Dialogo';
 import BarraProgreso from '@/components/BarraProgreso';
@@ -13,6 +14,7 @@ const ETIQUETA_ROL: Record<string, string> = {
 
 export default function UsuarioMenu() {
   const { sesion, cargando, logout } = useSesion();
+  const esAdmin = useRolPermitido('admin');
   const [mostrarConfirm, setMostrarConfirm] = useState(false);
   const [autenticando, setAutenticando] = useState(false);
   const [cerrando, setCerrando] = useState(false);
@@ -103,6 +105,20 @@ export default function UsuarioMenu() {
               </svg>
               Ver perfil en GitHub
             </a>
+            {esAdmin && (
+              <Link
+                to="/admin/roles"
+                onClick={() => setMenuAbierto(false)}
+                className="flex items-center gap-2.5 px-3 py-2 text-sm text-tierra-700 hover:bg-tierra-50 hover:text-tierra-900 no-underline"
+              >
+                <svg className="h-4 w-4 shrink-0 text-tierra-400" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
+                  <circle cx="6" cy="5" r="2.5" />
+                  <path d="M1 13c0-2.76 2.24-5 5-5h0c1.38 0 2.63.56 3.54 1.46" strokeLinecap="round" />
+                  <path d="M11 9l1.5 1.5L15 8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                Gestionar roles
+              </Link>
+            )}
             <div className="my-1 border-t border-tierra-100" />
             <button
               onClick={() => { setMenuAbierto(false); setMostrarConfirm(true); }}

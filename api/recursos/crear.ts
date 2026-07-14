@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { parsearSesion } from '../_lib/sesion.js';
-import { tienePermiso } from '../_lib/tipos.js';
+import { tienePermiso, subcarpetaDeTipo } from '../_lib/tipos.js';
 import { shaMain, crearRama, subirArchivo, abrirPR } from '../_lib/github.js';
 
 const TIPOS_VALIDOS = new Set([
@@ -40,7 +40,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (!titulo?.trim()) return res.status(400).json({ error: 'El título es requerido' });
 
   const nombreRama = `nuevo-recurso/${tipo}-${slug}`;
-  const rutaArchivo = `recursos/${tipo === 'campaña' ? 'campañas' : tipo + 's'}/${slug}.md`;
+  const rutaArchivo = `recursos/${subcarpetaDeTipo(tipo)}/${slug}.md`;
 
   const fm = { id: `${tipo}.${slug}`, titulo, tipo, resumen: resumen ?? '', ...frontmatter };
   const contenidoMd = construirMd(fm, cuerpo);

@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { parsearSesion } from '../_lib/sesion.js';
-import { tienePermiso } from '../_lib/tipos.js';
+import { tienePermiso, subcarpetaDeTipo } from '../_lib/tipos.js';
 import { shaMain, crearRama, abrirPR, shaArchivo, ghDelete } from '../_lib/github.js';
 
 const SLUG_RE = /^[a-z0-9-]+$/;
@@ -17,8 +17,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (!slug || !SLUG_RE.test(slug)) return res.status(400).json({ error: 'Slug inválido' });
   if (!tipo) return res.status(400).json({ error: 'Tipo requerido' });
 
-  const subcarpeta = tipo === 'campaña' ? 'campañas' : tipo + 's';
-  const rutaArchivo = `recursos/${subcarpeta}/${slug}.md`;
+  const rutaArchivo = `recursos/${subcarpetaDeTipo(tipo)}/${slug}.md`;
 
   const shaActual = await shaArchivo(rutaArchivo);
   if (!shaActual) return res.status(404).json({ error: 'Recurso no encontrado en el repositorio' });

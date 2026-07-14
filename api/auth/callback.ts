@@ -28,12 +28,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     // Intercambiar code por access_token
+    const ctrl1 = new AbortController();
+    const t1 = setTimeout(() => ctrl1.abort(), 8000);
     const tokenRes = await fetch('https://github.com/login/oauth/access_token', {
       method: 'POST',
-      signal: AbortSignal.timeout(8000),
+      signal: ctrl1.signal,
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
       body: JSON.stringify({ client_id: clientId, client_secret: clientSecret, code }),
-    });
+    }).finally(() => clearTimeout(t1));
     const tokenData = await tokenRes.json() as { access_token?: string; error?: string };
     if (!tokenData.access_token) {
       return res.status(401).json({ error: tokenData.error ?? 'No se pudo obtener el token' });
@@ -41,10 +43,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const userToken = tokenData.access_token;
 
     // Obtener perfil del usuario
+    const ctrl2 = new AbortController();
+    const t2 = setTimeout(() => ctrl2.abort(), 8000);
     const userRes = await fetch('https://api.github.com/user', {
-      signal: AbortSignal.timeout(8000),
+      signal: ctrl2.signal,
       headers: { 'Authorization': `Bearer ${userToken}`, 'Accept': 'application/vnd.github+json' },
-    });
+    }).finally(() => clearTimeout(t2));
     if (!userRes.ok) return res.status(401).json({ error: 'No se pudo obtener el perfil de GitHub' });
     const user = await userRes.json() as { login: string; name?: string; avatar_url: string };
 

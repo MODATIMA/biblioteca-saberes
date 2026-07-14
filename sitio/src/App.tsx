@@ -8,6 +8,7 @@ import Busqueda from '@/pages/Busqueda';
 import NoEncontrado from '@/pages/NoEncontrado';
 import Nuevo from '@/pages/Nuevo';
 import EditarRecurso from '@/pages/EditarRecurso';
+import AdminRoles from '@/pages/AdminRoles';
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="/buscar" element={<Busqueda />} />
           <Route path="/nuevo" element={<Nuevo />} />
           <Route path="/editar/:id" element={<EditarRecurso />} />
+          <Route path="/admin/roles" element={<AdminRoles />} />
           <Route path="/recurso/:id" element={<Recurso />} />
           <Route path="/:slug" element={<Categoria />} />
           <Route path="*" element={<NoEncontrado />} />

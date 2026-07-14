@@ -37,9 +37,11 @@ export async function notificarSolicitudAcceso(login: string, nombre: string | n
     </div>
   `.trim();
 
+  const ctrl = new AbortController();
+  const t = setTimeout(() => ctrl.abort(), 8000);
   const r = await fetch('https://api.resend.com/emails', {
     method: 'POST',
-    signal: AbortSignal.timeout(8000),
+    signal: ctrl.signal,
     headers: {
       'Authorization': `Bearer ${apiKey}`,
       'Content-Type': 'application/json',
@@ -50,7 +52,7 @@ export async function notificarSolicitudAcceso(login: string, nombre: string | n
       subject: `[Acceso] Solicitud de @${login} — MODATIMA`,
       html,
     }),
-  });
+  }).finally(() => clearTimeout(t));
 
   console.log(`[notificar] Resend → ${r.status}`);
   return r.status === 200 || r.status === 201;
