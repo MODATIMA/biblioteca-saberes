@@ -1,30 +1,25 @@
 ---
-id: territorio.santiago
-titulo: MODATIMA Santiago
-tipo: territorio
-
 pais: Chile
 region: Metropolitana
 provincia: Santiago
 comuna: Santiago
-
 temas:
   - agua
   - ciudad
   - contaminación
   - desigualdad hídrica
-  - Región Metropolitana
   - Gran Santiago
   - río Maipo
   - río Mapocho
+adjuntos:
 
 relacionados:
   - territorio.pirque
   - cuenca.rio-maipo
   - argumentario.agua-derecho-humano
-
-adjuntos:
-
+titulo: MODATIMA Santiago
+tipo: territorio
+resumen: 
 ---
 
 ## Descripción general
