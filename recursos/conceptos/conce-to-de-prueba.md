@@ -1,8 +1,8 @@
 ---
 id: concepto.conce-to-de-prueba
-titulo: a
+titulo: Concepto de prueba
 tipo: concepto
-resumen: a
+resumen: Concepto de prueba
 ---
 
 ## Definición
