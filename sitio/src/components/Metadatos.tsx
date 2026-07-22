@@ -126,9 +126,47 @@ export default function Metadatos({ recurso }: Props) {
             </ol>
           </Fila>
         )}
+
+        {(() => {
+          const adjuntos = parsearAdjuntos(recurso.frontmatter.adjuntos);
+          if (adjuntos.length === 0) return null;
+          return (
+            <Fila etiqueta="Adjuntos">
+              <ul className="space-y-2">
+                {adjuntos.map((a, i) => (
+                  <li key={i}>
+                    <a
+                      href={a.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-rio-700 underline hover:text-rio-500 text-xs"
+                    >
+                      {a.descripcion || acortarUrl(a.url)}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </Fila>
+          );
+        })()}
       </dl>
     </aside>
   );
+}
+
+function parsearAdjuntos(valor: unknown): { url: string; descripcion: string }[] {
+  if (!Array.isArray(valor)) return [];
+  return valor.flatMap((item) => {
+    if (item && typeof item === 'object' && !Array.isArray(item)) {
+      const o = item as Record<string, unknown>;
+      const url = String(o.url ?? '').trim();
+      return url ? [{ url, descripcion: String(o.descripcion ?? '').trim() }] : [];
+    }
+    if (typeof item === 'string' && item.trim()) {
+      return [{ url: item.trim(), descripcion: '' }];
+    }
+    return [];
+  });
 }
 
 function acortarUrl(url: string, max = 48): string {
